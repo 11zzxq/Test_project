@@ -37,21 +37,28 @@ function roundWinner(playerChoice,computerChoice) {
         return "Ничья"
     }
     else {
-        return false
+        return "Incorrect"
     }
    
 };
 var computerScore = 0
 var playerScore = 0
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5;) {
     var win = roundWinner(playerChoice(),computerChoice())
-    if (win == "Победа") {
+
+    if (win == "Incorrect") {
+        console.log("Incorrect")
+    }
+
+    else if (win == "Победа") {
+        i++
         console.log("Победа")
         playerScore += 1
         console.log("Your score:",playerScore,":", computerScore, "Computer score")
     }
     else if (win == "Поражение") {
+        i++
         console.log("Поражение")
         computerScore += 1
         console.log("Your score:",playerScore,":", computerScore, "Computer score") 
@@ -60,10 +67,6 @@ for (let i = 0; i < 5; i++) {
         console.log("Ничья")
         console.log("Your score:",playerScore,":", computerScore, "Computer score") 
     }
-
-    else {
-        console.log("Incorrect value")
-    } 
 };
 
 function result() {
